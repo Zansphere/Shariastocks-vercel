@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import logo1 from '../../../images/ShariaStocks-logo/Shariastocks1.png'; // Make sure this is a .webp if possible
+import logo1 from '../../../images/ShariaStocks-logo/ShariaStocks1.png'; // Make sure this is a .webp if possible
 
 export default function Header() {
   const navigate = useNavigate();

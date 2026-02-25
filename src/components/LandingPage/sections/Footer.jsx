@@ -1,5 +1,5 @@
 import React from 'react';
-import logo1 from '../../../images/ShariaStocks-logo/Shariastocks1.png'; // Use .webp if possible
+import logo1 from '../../../images/ShariaStocks-logo/ShariaStocks1.png'; // Use .webp if possible
 
 export default function Footer() {
   const socialLinks = [

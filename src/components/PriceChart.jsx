@@ -23,7 +23,7 @@ const PriceChart = ({ symbol }) => {
         
         const period = periodMap[timeframe];
         const response = await axios.get(
-          `http://15.206.209.211:5000/api/price-history/${symbol}?period=${period}`
+          `http://13.200.37.103/finance/api/price-history/${symbol}?period=${period}`
         );
         
         setPriceData(response.data.prices);
