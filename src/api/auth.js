@@ -9,7 +9,7 @@ export const handleOAuthCallback = (token, email, id) => {
 
 
 export const initiateGoogleSignIn = () => {
-  window.location.href = `http://localhost:5001/api/auth/google`;
+  window.location.href = `http://13.200.37.103/api/auth/google`;
 };
 
 export const signup = async (formData) => {
