@@ -65,7 +65,7 @@ const SubscriptionDetails = () => {
             setPaymentError(null);
             
             // Create subscription through backend API
-            const { data } = await axios.post("/api/transaction/create-subscription", { 
+            const { data } = await axios.post("https://api.shariastocks.in/api/transaction/create-subscription", { 
                 plan: selectedPlan,
                 billingCycle: billingCycle,
                 userId: userId,
@@ -90,7 +90,7 @@ const SubscriptionDetails = () => {
                     handler: async function(response) {
                         try {
                             // Verify subscription payment on backend
-                            const verificationResponse = await axios.post("/api/transaction/verify-subscription", {
+                            const verificationResponse = await axios.post("https://api.shariastocks.in/api/transaction/verify-subscription", {
                                 razorpay_payment_id: response.razorpay_payment_id,
                                 razorpay_subscription_id: response.razorpay_subscription_id,
                                 razorpay_signature: response.razorpay_signature,
@@ -150,7 +150,7 @@ const SubscriptionDetails = () => {
                     handler: async function(response) {
                         try {
                             // Verify payment on backend
-                            const verificationResponse = await axios.post("/api/transaction/verify-order", response);
+                            const verificationResponse = await axios.post("https://api.shariastocks.in/api/transaction/verify-order", response);
                             
                             if (verificationResponse.data.status === 'success') {
                                 // Update local state with new subscription info
@@ -247,7 +247,7 @@ const SubscriptionDetails = () => {
         setShowCancelPendingPayment(false);
 
         try {
-            await axios.post("/api/transaction/cancel-pending-subscription", {
+            await axios.post("https://api.shariastocks.in/api/transaction/cancel-pending-subscription", {
                 userId: userId,
                 plan: selectedPlan,
                 billingCycle: billingCycle
@@ -393,7 +393,7 @@ const SubscriptionDetails = () => {
         try {
             setLoading(true);
             
-            const response = await axios.post('/api/transaction/cancel-subscription', {
+            const response = await axios.post('https://api.shariastocks.in/api/transaction/cancel-subscription', {
                 userId: userId,
                 subscriptionId: user.subscription.subscriptionId
             });
@@ -422,7 +422,7 @@ const SubscriptionDetails = () => {
         try {
             setLoading(true);
             
-            const response = await axios.post('/api/transaction/reactivate-subscription', {
+            const response = await axios.post('https://api.shariastocks.in/api/transaction/reactivate-subscription', {
                 userId: userId,
                 subscriptionId: user.subscription.subscriptionId
             });

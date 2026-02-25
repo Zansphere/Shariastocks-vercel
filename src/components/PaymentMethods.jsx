@@ -32,7 +32,7 @@ const PaymentMethodsPage = () => {
     const fetchPaymentMethods = async () => {
       try {
         setLoading(true);
-        const response = await axios.get(`/api/payments/${userId}`);
+        const response = await axios.get(`https://api.shariastocks.in/api/payments/${userId}`);
         setPaymentMethods(response.data);
         setError(null);
       } catch (err) {
@@ -53,7 +53,7 @@ const PaymentMethodsPage = () => {
 
   const setDefaultMethod = async (methodId) => {
     try {
-      await axios.put(`/api/payments/default/${methodId}`, { userId });
+      await axios.put(`https://api.shariastocks.in/api/payments/default/${methodId}`, { userId });
       
       setPaymentMethods(paymentMethods.map(method => ({
         ...method,
@@ -132,7 +132,7 @@ const PaymentMethodsPage = () => {
         color: cardColor
       };
 
-      const response = await axios.post('/api/payments', newPaymentMethod);
+      const response = await axios.post('https://api.shariastocks.in/api/payments', newPaymentMethod);
       setPaymentMethods([...paymentMethods, response.data]);
       
       setNewCard({
@@ -190,7 +190,7 @@ const PaymentMethodsPage = () => {
         color: 'bg-gradient-to-r from-purple-600 to-indigo-700'
       };
 
-      const response = await axios.post('/api/payments', newPaymentMethod);
+      const response = await axios.post('https://api.shariastocks.in/api/payments', newPaymentMethod);
       setPaymentMethods([...paymentMethods, response.data]);
       
       setNewUPI({
@@ -225,7 +225,7 @@ const PaymentMethodsPage = () => {
   const deletePaymentMethod = async (methodId) => {
     if (window.confirm('Are you sure you want to delete this payment method?')) {
       try {
-        await axios.delete(`/api/payments/${methodId}`);
+        await axios.delete(`https://api.shariastocks.in/api/payments/${methodId}`);
         setPaymentMethods(paymentMethods.filter(method => method._id !== methodId));
       } catch (err) {
         setError('Failed to delete payment method.');

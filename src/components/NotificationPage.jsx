@@ -17,7 +17,7 @@ const NotificationsPage = () => {
     try {
       setLoading(true);
       const userId = localStorage.getItem("userId");
-      const response = await axios.get(`/api/notifications?userId=${userId}&type=${activeTab}`);
+      const response = await axios.get(`https://api.shariastocks.in/api/notifications?userId=${userId}&type=${activeTab}`);
       setNotifications(response.data);
       console.log(notifications)
       setLoading(false);
@@ -35,7 +35,7 @@ const NotificationsPage = () => {
     
     try {
       // Mark notification as read
-      await axios.post(`/api/notifications/read/${notification.id}`);
+      await axios.post(`https://api.shariastocks.in/api/notifications/read/${notification.id}`);
       
       // Update local state to show it's read
       setNotifications(prevNotifications => 
@@ -60,7 +60,7 @@ const NotificationsPage = () => {
     e.stopPropagation(); // Prevent the notification click event from firing
     
     try {
-      await axios.delete(`/api/notifications/${notificationId}`);
+      await axios.delete(`https://api.shariastocks.in/api/notifications/${notificationId}`);
       // Remove the notification from state
       setNotifications(prevNotifications => 
         prevNotifications.filter(notification => notification.id !== notificationId)

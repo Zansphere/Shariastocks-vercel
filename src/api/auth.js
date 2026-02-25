@@ -9,17 +9,17 @@ export const handleOAuthCallback = (token, email, id) => {
 
 
 export const initiateGoogleSignIn = () => {
-  window.location.href = `http://13.200.37.103/api/auth/google`;
+  window.location.href = `https://api.shariastocks.in/api/auth/google`;
 };
 
 export const signup = async (formData) => {
-    const res = await axios.post('/api/auth/signup', formData);
+    const res = await axios.post('https://api.shariastocks.in/api/auth/signup', formData);
     return res.data;
 };
 
 export const tokenverify = async (token) => {
   try {
-    const response = await fetch(`/api/auth/verify/${token}`, {
+    const response = await fetch(`https://api.shariastocks.in/api/auth/verify/${token}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const tokenverify = async (token) => {
 
 export const verify = async (token) => {
   try {
-    const response = await fetch(`/api/auth/verify/${token}`, {
+    const response = await fetch(`https://api.shariastocks.in/api/auth/verify/${token}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ export const verify = async (token) => {
 
 export const resendVerification = async (email) => {
   try {
-    const response = await fetch('/api/auth/resend-verification', {
+    const response = await fetch('https://api.shariastocks.in/api/auth/resend-verification', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -79,31 +79,31 @@ export const resendVerification = async (email) => {
 };
 
 export const login = async (formData) => {
-    const res = await axios.post('/api/auth/login', formData);
+    const res = await axios.post('https://api.shariastocks.in/api/auth/login', formData);
     return res.data;
 };
 
 export const forgotPassword = async (data) => {
-  return await axios.post('/api/auth/forgot-password', data);
+  return await axios.post('https://api.shariastocks.in/api/auth/forgot-password', data);
 };
 
 export const resetPassword = async (token, data) => {
-  return await axios.post(`/api/auth/reset-password/${token}`, data);
+  return await axios.post(`https://api.shariastocks.in/api/auth/reset-password/${token}`, data);
 };
 
 export const getUserData = async (email) => {
-  const res = await axios.get(`/api/auth/user/${email}`);
+  const res = await axios.get(`https://api.shariastocks.in/api/auth/user/${email}`);
   return res.data;
 };
 
 // Update user data by email
 export const updateUserData = async (email, data) => {
-  const res = await axios.put(`/api/auth/user/${email}`, data);
+  const res = await axios.put(`https://api.shariastocks.in/api/auth/user/${email}`, data);
   return res.data;
 };
 
 export const uploadProfilePicture = async (formData) => {
-  return await axios.post('/api/auth/upload-profile-picture', formData, {
+  return await axios.post('https://api.shariastocks.in/api/auth/upload-profile-picture', formData, {
       headers: { 'Content-Type': 'multipart/form-data' }
   });
 };

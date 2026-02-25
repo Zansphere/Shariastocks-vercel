@@ -56,7 +56,7 @@ const BlogAdmin = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('/api/blogs', formData);
+      await axios.post('https://api.shariastocks.in/api/blogs', formData);
       alert('Blog posted successfully!');
       setFormData({
         title: '',

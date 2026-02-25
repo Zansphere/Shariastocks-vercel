@@ -51,7 +51,7 @@ const WatchList = () => {
         }
         const fetchWatchlist = async () => {
             try {
-                const response = await axios.get(`/api/watchlist/${userId}`);
+                const response = await axios.get(`https://api.shariastocks.in/api/watchlist/${userId}`);
                 console.log("Watchlist data:", response.data);
                 setStocks(response.data.watchlist || []);
 
@@ -65,7 +65,7 @@ const WatchList = () => {
                         
                         try {
                             const companyDetailsResponse = await axios.get(
-                                `http://15.206.209.211:5000/api/company-details/${stock.symbol + ".NS"}`
+                                `https://api.shariastocks.in/finance/api/company-details/${stock.symbol + ".NS"}`
                             );
 
                             // Store details in state using stock symbol as key
@@ -130,7 +130,7 @@ const WatchList = () => {
             
             console.log(`Removing stock ${stockToRemove} for user ${userId}`);
             
-            const response = await axios.delete(`/api/watchlist/${userId}/${stockToRemove}`, {
+            const response = await axios.delete(`https://api.shariastocks.in/api/watchlist/${userId}/${stockToRemove}`, {
                 data: { userId, symbol: stockToRemove }
             });
             

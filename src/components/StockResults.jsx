@@ -139,7 +139,7 @@ const StockResults = () => {
         try {
           setLoading(true);
           const companyDetailsResponse = await axios.get(
-            `http://13.200.37.103/finance/api/company-details/${symbol}.NS`,
+            `https://api.shariastocks.in/finance/api/company-details/${symbol}.NS`,
             { 
               signal: controller.signal,
               timeout: 10000 
@@ -149,7 +149,7 @@ const StockResults = () => {
           localStorage.setItem(`companyDetails_${symbol}`, JSON.stringify(companyDetailsResponse.data));
     
           const stockDataResponse = await axios.get(
-            `/api/stocks/${symbol.toUpperCase()}?userId=${userId}`,
+            `https://api.shariastocks.in/api/stocks/${symbol.toUpperCase()}?userId=${userId}`,
             { 
               signal: controller.signal,
               timeout: 10000 
@@ -304,7 +304,7 @@ const StockResults = () => {
             
             // If already in watchlist, remove it
             if (isInWatchlist) {
-                const response = await axios.delete(`/api/watchlist/${userId}/${symbolToToggle}`);
+                const response = await axios.delete(`https://api.shariastocks.in/api/watchlist/${userId}/${symbolToToggle}`);
                 
                 // Update local state to remove the stock
                 setWatchlist(watchlist.filter(item => item.symbol !== symbolToToggle));
@@ -321,7 +321,7 @@ const StockResults = () => {
                     return;
                 }
                 
-                const response = await axios.post('/api/watchlist', {
+                const response = await axios.post('https://api.shariastocks.in/api/watchlist', {
                     userId,
                     symbol,
                     companyName: companyDetails.company_name,

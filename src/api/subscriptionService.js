@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = '/api/subscribe';
+const API_URL = 'https://api.shariastocks.in/api/subscribe';
 
 
 export const getSubscriptionPlans = async () => {

@@ -179,7 +179,7 @@ console.log(user)
           return;
         }
       
-      const response = await axios.post('/api/transaction/update-payment-mode', {
+      const response = await axios.post('https://api.shariastocks.in/api/transaction/update-payment-mode', {
         userId: user._id,
         paymentMode,
         effectiveDate: paymentMode === 'manual' && user?.subscription?.paymentMode === 'automatic' 
@@ -210,7 +210,7 @@ console.log(user)
         setCancelError(null);
         setCancelSuccess(false);
         try {
-          const response = await axios.post('/api/transaction/cancel-manual-payment-change', {
+          const response = await axios.post('https://api.shariastocks.in/api/transaction/cancel-manual-payment-change', {
             userId: user._id,
           });
           if (response.data.status === 'success') {
@@ -235,7 +235,7 @@ console.log(user)
     try {
       setIsSubmitting(true);
       
-      const response = await axios.post('/api/transaction/cancel-subscription', {
+      const response = await axios.post('https://api.shariastocks.in/api/transaction/cancel-subscription', {
         userId: user._id,
         subscriptionId: user?.subscription?.subscriptionId,
         reason,
