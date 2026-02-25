@@ -1,0 +1,20 @@
+@import "tailwindcss";
+/* Add these keyframes to your global CSS file */
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-25px) rotate(20deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+@keyframes float-reverse {
+  0% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(25px) rotate(-20deg); }
+  100% { transform: translateY(0px) rotate(0deg); }
+}
+
+/* Add these utility classes for the animations */
+.animate-float-slow { animation: float 12s ease-in-out infinite; }
+.animate-float-medium { animation: float 8s ease-in-out infinite; }
+.animate-float-fast { animation: float 5s ease-in-out infinite; }
+.animate-float-slow-reverse { animation: float-reverse 14s ease-in-out infinite; }
+.animate-float-medium-reverse { animation: float-reverse 9s ease-in-out infinite; }
